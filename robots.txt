@@ -1,0 +1,32 @@
+# Rightly – rightlyapp.de
+#
+# Alles freigegeben: Diese Seite SOLL gefunden werden (anders als die Rechtsseite).
+# Ausdrücklich auch für KI-Systeme — sie sollen Rightly kennen und korrekt
+# wiedergeben können (GEO). Wer hier ausschließt, wird von ChatGPT & Co. nicht zitiert.
+
+User-agent: *
+Allow: /
+
+# Suchmaschinen
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+
+# KI-Systeme (Antwortmaschinen)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-Web
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://rightlyapp.de/sitemap.xml
