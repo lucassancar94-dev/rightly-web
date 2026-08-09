@@ -1,0 +1,279 @@
+/* ============================================================================
+   Rightly – ein Muster für alle Seiten
+   Farben aus docs/DESIGN-Farben.md: EIN Akzent (Rightly-Grün), heller + dunkler
+   Grund. Jede Seite (Start und Ratgeber) benutzt denselben Kopf, denselben Fuß
+   und dieselben Bausteine. Wer eine neue Seite baut, kopiert nur das Gerüst.
+   ========================================================================= */
+
+:root{
+  /* Akzent */
+  --gruen:#22c55e;          /* Flächen, Knöpfe */
+  --gruen-dunkel:#16a34a;   /* gedrückt */
+  --gruen-text:#15803d;     /* Grün als TEXT – dunkler, damit lesbar */
+  --gruen-zart:#ecfdf5;     /* zarte Fläche */
+  --gruen-rand:#bbf7d0;
+
+  /* Grund */
+  --bg:#ffffff;
+  --flaeche:#f7f9fb;        /* Karten */
+  --flaeche2:#eef2f6;       /* Kästen auf Karten */
+  --text:#111826;           /* Fließtext */
+  --text2:#55606f;          /* Nebentext – bewusst dunkler als üblich */
+  --rand:#e3e8ee;
+  --rand-stark:#cfd6df;
+
+  /* Vorher (falsch) */
+  --rot-flaeche:#fef2f2; --rot-rand:#fbcfcf; --rot-text:#b42318;
+
+  --schatten:0 1px 2px rgba(16,24,40,.04), 0 8px 24px -12px rgba(16,24,40,.14);
+  --schatten-hoch:0 2px 4px rgba(16,24,40,.05), 0 18px 36px -16px rgba(16,24,40,.22);
+  --radius:16px;
+  --spalte:760px;           /* Lesebreite Fließtext */
+  --breit:1000px;           /* Kopf, Fuß, Kartenraster */
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --gruen:#22c55e; --gruen-dunkel:#16a34a;
+    --gruen-text:#5ee08b;
+    --gruen-zart:rgba(34,197,94,.10);
+    --gruen-rand:rgba(94,224,139,.30);
+
+    --bg:#0e1116;
+    --flaeche:#171b22;
+    --flaeche2:#1e242d;
+    --text:#f2f4f7;
+    --text2:#a4aebb;
+    --rand:#272e38;
+    --rand-stark:#39424e;
+
+    --rot-flaeche:rgba(248,113,113,.10); --rot-rand:rgba(248,113,113,.30); --rot-text:#fca5a5;
+
+    --schatten:0 1px 2px rgba(0,0,0,.30), 0 8px 24px -12px rgba(0,0,0,.60);
+    --schatten-hoch:0 2px 4px rgba(0,0,0,.35), 0 18px 36px -16px rgba(0,0,0,.70);
+  }
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--text);
+  font-size:17px;line-height:1.7;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+.wrap{max-width:var(--breit);margin:0 auto;padding:0 24px}
+a{color:var(--gruen-text);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:hover{text-decoration-color:var(--gruen)}
+:focus-visible{outline:3px solid var(--gruen);outline-offset:3px;border-radius:6px}
+strong{font-weight:700}
+em{font-style:normal;font-weight:600;color:var(--text)}
+
+/* ---------- Kopf (auf JEDER Seite gleich) --------------------------------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--rand);
+}
+@supports not (backdrop-filter:blur(1px)){ header{background:var(--bg)} }
+.kopf-inhalt{display:flex;align-items:center;justify-content:space-between;gap:18px;
+             min-height:64px;padding-top:10px;padding-bottom:10px}
+.logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:19px;
+      letter-spacing:-.01em;text-decoration:none;color:var(--text)}
+.logo .r{width:32px;height:32px;border-radius:9px;flex:0 0 32px;
+         background:linear-gradient(140deg,#34d777,var(--gruen-dunkel));
+         color:#fff;display:grid;place-items:center;font-size:18px;font-weight:800;
+         box-shadow:0 2px 8px rgba(22,163,74,.35)}
+.hauptnav{display:flex;align-items:center;gap:26px}
+.hauptnav a{color:var(--text2);text-decoration:none;font-size:15.5px;font-weight:600}
+.hauptnav a:hover{color:var(--text)}
+.knopf-klein{background:var(--gruen);color:#fff !important;padding:9px 17px;border-radius:10px;
+             font-size:15px;font-weight:700;box-shadow:0 2px 10px rgba(22,163,74,.30)}
+.knopf-klein:hover{background:var(--gruen-dunkel)}
+@media (max-width:720px){ .hauptnav .nur-gross{display:none} .kopf-inhalt{gap:10px} }
+
+/* ---------- Startseite: Hero ---------------------------------------------- */
+.hero{padding:74px 0 58px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:-40% 20% auto 20%;height:420px;
+  background:radial-gradient(60% 60% at 50% 40%, rgba(34,197,94,.18), transparent 70%);
+  pointer-events:none;z-index:-1}
+h1{font-size:clamp(32px,5.2vw,46px);line-height:1.14;letter-spacing:-.025em;
+   font-weight:800;margin-bottom:18px}
+h1 .g{background:linear-gradient(120deg,#34d777,var(--gruen-dunkel));
+      -webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:19px;color:var(--text2);max-width:600px;margin:0 auto 30px}
+.cta{display:inline-block;background:var(--gruen);color:#fff;text-decoration:none;font-weight:700;
+     padding:16px 34px;border-radius:14px;font-size:17.5px;
+     box-shadow:0 4px 14px rgba(22,163,74,.32);transition:transform .12s ease, box-shadow .12s ease}
+.cta:hover{background:var(--gruen-dunkel);transform:translateY(-1px);
+           box-shadow:0 8px 22px rgba(22,163,74,.38)}
+.unter{font-size:14.5px;color:var(--text2);margin-top:14px}
+
+/* ---------- Abschnitte ----------------------------------------------------- */
+section{padding:52px 0;border-top:1px solid var(--rand)}
+h2{font-size:clamp(23px,3vw,29px);line-height:1.25;letter-spacing:-.018em;
+   font-weight:800;margin-bottom:10px}
+h3{font-size:19.5px;line-height:1.35;font-weight:700;letter-spacing:-.01em;margin:30px 0 8px}
+.sub{color:var(--text2);margin-bottom:28px;font-size:17px}
+p+p{margin-top:14px}
+/* Absatz, der auf einen Baustein folgt, darf nicht daran kleben */
+.karten+p, .vn+p, ol.schritte+p, .vorlage+p, ul+p, .hinweis+p{margin-top:22px}
+
+/* Karten */
+.karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
+.karte{background:var(--flaeche);border:1px solid var(--rand);border-radius:var(--radius);
+       padding:22px;box-shadow:var(--schatten);transition:transform .14s ease, box-shadow .14s ease}
+.karte:hover{transform:translateY(-2px);box-shadow:var(--schatten-hoch)}
+.karte h3{font-size:17.5px;margin:0 0 6px}
+.karte p{font-size:15.5px;color:var(--text2);line-height:1.65}
+.ico{width:40px;height:40px;border-radius:12px;background:var(--gruen-zart);
+     border:1px solid var(--gruen-rand);color:var(--gruen-text);
+     display:grid;place-items:center;font-size:19px;margin-bottom:14px}
+
+/* Nummerierte Schritte */
+ol.schritte{list-style:none;counter-reset:s;display:grid;gap:18px;margin:0}
+ol.schritte li{counter-increment:s;display:flex;gap:16px;align-items:flex-start}
+ol.schritte li::before{content:counter(s);flex:0 0 30px;height:30px;border-radius:50%;
+  background:var(--gruen);color:#fff;display:grid;place-items:center;
+  font-size:14.5px;font-weight:800;margin-top:2px;
+  box-shadow:0 2px 8px rgba(22,163,74,.30)}
+ol.schritte .dazu{display:block;color:var(--text2);font-size:15.5px;margin-top:2px}
+
+/* Preis */
+.preis{background:linear-gradient(180deg,var(--gruen-zart),transparent);
+       border:1px solid var(--gruen-rand);border-radius:20px;padding:32px 26px;text-align:center;
+       box-shadow:var(--schatten)}
+.preis .zahl{font-size:40px;font-weight:800;letter-spacing:-.03em}
+.preis .je{color:var(--text2);font-size:15.5px}
+ul.liste{list-style:none;display:grid;gap:11px;margin:20px auto 0;text-align:left;max-width:400px}
+ul.liste li{padding-left:30px;position:relative;font-size:16px}
+ul.liste li::before{content:"✓";position:absolute;left:0;top:-1px;color:var(--gruen-text);
+                    font-weight:800;font-size:17px}
+.preis-cta{margin-top:24px}
+
+/* FAQ */
+details{border:1px solid var(--rand);border-radius:14px;padding:0;margin-bottom:12px;
+        background:var(--flaeche);overflow:hidden;transition:border-color .12s ease}
+details:hover{border-color:var(--rand-stark)}
+details[open]{background:var(--bg);border-color:var(--rand-stark);box-shadow:var(--schatten)}
+summary{cursor:pointer;font-weight:700;font-size:16.5px;padding:16px 48px 16px 18px;
+        position:relative;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
+  width:26px;height:26px;border-radius:8px;background:var(--flaeche2);color:var(--text2);
+  display:grid;place-items:center;font-size:18px;font-weight:700;line-height:1}
+details[open] summary::after{content:"–";background:var(--gruen-zart);color:var(--gruen-text)}
+details p{margin:0 18px 18px;color:var(--text2);font-size:16px}
+
+/* ---------- Fuß (auf JEDER Seite gleich) ---------------------------------- */
+footer{border-top:1px solid var(--rand);margin-top:20px;background:var(--flaeche)}
+.fuss-inhalt{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:34px;padding:44px 24px 30px}
+.fuss-marke .logo{margin-bottom:12px}
+.fuss-marke p{color:var(--text2);font-size:15px;max-width:300px}
+.fuss-spalte h3{font-size:13px;text-transform:uppercase;letter-spacing:.08em;
+                color:var(--text2);margin:6px 0 12px;font-weight:800}
+.fuss-spalte a{display:block;color:var(--text);text-decoration:none;font-size:15.5px;
+               padding:5px 0}
+.fuss-spalte a:hover{color:var(--gruen-text);text-decoration:underline}
+.fuss-unten{border-top:1px solid var(--rand);padding:18px 24px 34px;
+            color:var(--text2);font-size:14.5px}
+@media (max-width:720px){ .fuss-inhalt{grid-template-columns:1fr;gap:26px} }
+
+/* ============================================================================
+   Ratgeber-Seiten – dasselbe Muster auf jeder Unterseite
+   ========================================================================= */
+.artikel{max-width:calc(var(--spalte) + 48px)}
+.krume{font-size:14.5px;color:var(--text2);padding:24px 0 0}
+.krume a{color:var(--text2);text-decoration:none;font-weight:600}
+.krume a:hover{color:var(--gruen-text);text-decoration:underline}
+.krume span{opacity:.55;margin:0 7px}
+
+.artikel h1{font-size:clamp(28px,4.4vw,38px);text-align:left;margin:18px 0 20px}
+
+/* Die direkte Antwort ganz oben – das zitieren Antwortmaschinen */
+.antwort{position:relative;font-size:18.5px;line-height:1.65;
+  background:var(--gruen-zart);border:1px solid var(--gruen-rand);
+  border-radius:var(--radius);padding:22px 24px 22px 26px;margin-bottom:10px}
+.antwort::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;
+  border-radius:0 4px 4px 0;background:linear-gradient(180deg,#34d777,var(--gruen-dunkel))}
+
+.artikel section{padding:38px 0}
+.artikel p,.artikel li{font-size:16.8px}
+.artikel ul,.artikel ol:not(.schritte){margin:14px 0 0 4px;display:grid;gap:10px;
+                                        list-style-position:outside;padding-left:20px}
+
+/* Vorher / Nachher */
+.vn{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0 6px}
+.vn>div{border-radius:14px;padding:18px;border:1px solid var(--rand);box-shadow:var(--schatten)}
+.vn .vorher{background:var(--rot-flaeche);border-color:var(--rot-rand)}
+.vn .nachher{background:var(--gruen-zart);border-color:var(--gruen-rand)}
+.vn .kopf{display:inline-flex;align-items:center;gap:7px;
+  font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:10px;padding:4px 10px;border-radius:999px;background:var(--bg)}
+.vn .vorher .kopf{color:var(--rot-text)}
+.vn .nachher .kopf{color:var(--gruen-text)}
+.vn .vorher .kopf::before{content:"✕";font-size:12px}
+.vn .nachher .kopf::before{content:"✓";font-size:13px}
+.vn p{font-size:16px;margin:0;line-height:1.6}
+
+/* Vorlage zum Kopieren */
+.vorlage{position:relative;background:var(--flaeche);border:1px solid var(--rand);
+  border-radius:14px;padding:40px 22px 22px;margin:16px 0;white-space:pre-wrap;
+  font-size:16px;line-height:1.75;box-shadow:var(--schatten);
+  overflow-wrap:break-word}
+.vorlage::before{content:"Vorlage";position:absolute;top:12px;left:22px;
+  font-size:11.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--text2)}
+.vorlage::after{content:"";position:absolute;top:0;left:0;width:4px;height:100%;
+  border-radius:14px 0 0 14px;background:var(--rand-stark)}
+/* Platzhalter wie [Name] sichtbar machen, ohne den Satz auseinanderzuziehen:
+   Rahmen als inset-Schatten (braucht keinen Platz), Innenabstand minimal. */
+/* WICHTIG: kein white-space:nowrap – ein langer Platzhalter wie
+   [Dringender Termin / Übergabe: …] würde sonst die ganze Seite auf dem
+   Handy breiter machen und den Text seitlich abschneiden. */
+.platz{background:var(--gruen-zart);box-shadow:inset 0 0 0 1px var(--gruen-rand);
+  border-radius:5px;padding:0 2px;color:var(--gruen-text);font-weight:600;
+  box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* Hinweis / Achtung */
+.hinweis{display:flex;gap:14px;background:var(--flaeche2);border:1px solid var(--rand);
+  border-radius:14px;padding:18px 20px;margin:24px 0;font-size:15.8px;color:var(--text2)}
+.hinweis::before{content:"!";flex:0 0 26px;height:26px;border-radius:50%;
+  background:var(--gruen);color:#fff;display:grid;place-items:center;
+  font-weight:800;font-size:15px;margin-top:2px}
+.hinweis strong{color:var(--text)}
+
+/* Werbeblock am Seitenende */
+.ende{background:linear-gradient(165deg,var(--gruen-zart),transparent 70%);
+  border:1px solid var(--gruen-rand);border-radius:20px;padding:34px 28px;text-align:center;
+  margin-top:44px;box-shadow:var(--schatten)}
+.ende h2{font-size:23px;margin-bottom:10px}
+.ende p{color:var(--text2);font-size:16.5px;max-width:540px;margin:0 auto 22px}
+
+/* Weiterlesen / Ratgeber-Liste */
+.weiter{display:grid;gap:12px;margin-top:16px}
+.weiter a{display:block;border:1px solid var(--rand);border-radius:14px;padding:17px 46px 17px 19px;
+  text-decoration:none;color:var(--text);font-weight:700;font-size:16.5px;
+  background:var(--flaeche);position:relative;box-shadow:var(--schatten);
+  transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease}
+.weiter a:hover{border-color:var(--gruen-rand);transform:translateY(-2px);box-shadow:var(--schatten-hoch)}
+.weiter a::after{content:"→";position:absolute;right:20px;top:50%;transform:translateY(-50%);
+  color:var(--gruen-text);font-size:19px;transition:transform .14s ease}
+.weiter a:hover::after{transform:translateY(-50%) translateX(3px)}
+.weiter span{display:block;font-weight:400;color:var(--text2);font-size:15px;margin-top:3px;
+             padding-right:6px}
+
+@media (max-width:640px){
+  body{font-size:16.5px}
+  .hero{padding:52px 0 42px}
+  section{padding:40px 0}
+  .vn{grid-template-columns:1fr}
+  .antwort{font-size:17.5px;padding:20px}
+  .wrap{padding:0 18px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none !important;scroll-behavior:auto !important}
+  .karte:hover,.weiter a:hover,.cta:hover{transform:none}
+}
