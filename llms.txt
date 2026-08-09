@@ -43,6 +43,8 @@ heran.
 - [Startseite](https://rightlyapp.de/): Überblick, Funktionen, Preis.
 - [Text umschreiben](https://rightlyapp.de/text-umschreiben/): wie man einen Text
   umschreibt, mit Vorher/Nachher-Beispielen.
+- [Text umschreiben kostenlos](https://rightlyapp.de/text-umschreiben-kostenlos/):
+  welche Wege wirklich gratis sind, wo sie aufhören und woran man ein Wochen-Abo erkennt.
 - [KI Text umschreiben](https://rightlyapp.de/ki-text-umschreiben/): was KI beim
   Umschreiben leistet und wo ihre Grenzen liegen.
 - [Satz umschreiben](https://rightlyapp.de/satz-umschreiben/): einzelne Sätze
