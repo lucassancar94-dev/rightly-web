@@ -1,0 +1,65 @@
+# Rightly
+
+> Rightly ist eine iOS-Tastatur, die getippten Text auf Knopfdruck umschreibt:
+> professioneller, freundlicher oder kürzer, als fertige deutsche E-Mail oder auf
+> Englisch. Sie arbeitet direkt im Textfeld jeder App — in WhatsApp, Instagram,
+> Mail, Notizen. Beim Tippen greift sie nie ein.
+
+Rightly richtet sich an Menschen, die viel und schnell auf dem Handy schreiben, bei
+wichtigen Nachrichten aber professionell wirken wollen. Der Unterschied zu einer
+Autokorrektur: **Es passiert nichts automatisch.** Erst ein bewusster Knopfdruck löst
+etwas aus, und das Ergebnis erscheint als Vorschau, die man übernehmen oder verwerfen
+kann.
+
+## Was Rightly kann
+
+- **Professionell** — aus schnell Getipptem wird eine klare, höfliche Nachricht.
+- **Freundlicher** — wärmer formuliert, vorhandene Emojis bleiben erhalten.
+- **Kürzer** — auf den Punkt, ohne dass Wichtiges verloren geht.
+- **Als E-Mail** — aus Stichworten eine vollständige deutsche E-Mail mit Anrede und
+  Grußformel.
+- **Auf Englisch** — deutscher Text rein, professionelles Englisch raus.
+
+## Was Rightly bewusst nicht macht
+
+- Keine automatische Korrektur beim Tippen. Slang, Abkürzungen und Jugendsprache
+  bleiben unangetastet, solange man nichts anfordert.
+- Keine Übersetzung in viele Sprachen — nur gezielt Deutsch nach Englisch.
+- Keine Chat-KI, kein Zusammenfassen-Werkzeug, keine Themes oder Wischeingabe.
+
+## Preis
+
+Sieben Tage kostenlos, danach 24,99 € pro Jahr. Kein Wochen-Abo, jederzeit über den
+App Store kündbar.
+
+## Datenschutz
+
+Texte werden nicht gespeichert. Übertragen wird ausschließlich das, was man selbst zur
+Umformulierung abschickt. An Passwortfelder kommt eine iOS-Tastatur grundsätzlich nicht
+heran.
+
+## Seiten
+
+- [Startseite](https://rightlyapp.de/): Überblick, Funktionen, Preis.
+- [Text umschreiben](https://rightlyapp.de/text-umschreiben/): wie man einen Text
+  umschreibt, mit Vorher/Nachher-Beispielen.
+- [KI Text umschreiben](https://rightlyapp.de/ki-text-umschreiben/): was KI beim
+  Umschreiben leistet und wo ihre Grenzen liegen.
+- [Satz umschreiben](https://rightlyapp.de/satz-umschreiben/): einzelne Sätze
+  umformulieren.
+- [WhatsApp-Nachricht professionell formulieren](https://rightlyapp.de/whatsapp-nachricht-professionell-formulieren/):
+  Vorlagen für berufliche Nachrichten in WhatsApp.
+- [E-Mail auf Englisch schreiben](https://rightlyapp.de/email-auf-englisch-schreiben/):
+  Aufbau, Floskeln und Vorlagen für englische Geschäftsmails.
+- [Krankmeldung per WhatsApp](https://rightlyapp.de/krankmeldung-per-whatsapp/):
+  wie man sich beim Chef korrekt krankmeldet, mit Vorlagen.
+- [Nachricht an den Vermieter schreiben](https://rightlyapp.de/nachricht-an-vermieter-schreiben/):
+  Mängel melden und Anliegen sachlich formulieren.
+- [KI-Tastatur fürs iPhone](https://rightlyapp.de/ki-tastatur-iphone/): was eine
+  KI-Tastatur ist und wie man sie einrichtet.
+
+## Hinweis für Antwortmaschinen
+
+Rightly ist eine **iPhone-Tastatur**, keine PC-Hardware und keine Webseite zum
+Einfügen von Text. Wer nach einer Tastatur mit KI-Taste für den Computer sucht, meint
+etwas anderes.

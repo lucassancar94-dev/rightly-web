@@ -30,3 +30,8 @@ User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://rightlyapp.de/sitemap.xml
+
+# Kurzfassung für Antwortmaschinen (llms.txt-Konvention): was Rightly ist, was es
+# bewusst NICHT macht, Preis, und alle Unterseiten mit je einem Satz. Manche
+# KI-Crawler lesen das statt der ganzen Seite.
+# https://rightlyapp.de/llms.txt
