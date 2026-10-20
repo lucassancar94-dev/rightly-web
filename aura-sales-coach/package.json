@@ -1,0 +1,35 @@
+{
+  "name": "aura-sales-coach",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KI-Verkaufsassistent für den telefonischen Outbound-Vertrieb von Aura Natura",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "seed:supabase": "node --env-file-if-exists=.env.local scripts/seed-supabase.mjs",
+    "icons": "python3 scripts/generate-icons.py"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "2.118.0",
+    "next": "15.5.28",
+    "openai": "5.23.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "server-only": "0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.3",
+    "@types/react": "19.1.8",
+    "@types/react-dom": "19.1.6",
+    "autoprefixer": "10.4.21",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.8.3"
+  },
+  "engines": {
+    "node": ">=22.9"
+  }
+}
