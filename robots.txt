@@ -1,7 +1,7 @@
-# Rightly – rightlyapp.de
+# Rightly, rightlyapp.de
 #
 # Alles freigegeben: Diese Seite SOLL gefunden werden (anders als die Rechtsseite).
-# Ausdrücklich auch für KI-Systeme — sie sollen Rightly kennen und korrekt
+# Ausdrücklich auch für KI-Systeme: sie sollen Rightly kennen und korrekt
 # wiedergeben können (GEO). Wer hier ausschließt, wird von ChatGPT & Co. nicht zitiert.
 
 User-agent: *

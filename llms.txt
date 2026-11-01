@@ -2,7 +2,7 @@
 
 > Rightly ist eine iOS-Tastatur, die getippten Text auf Knopfdruck umschreibt:
 > professioneller, freundlicher oder kürzer, als fertige deutsche E-Mail oder auf
-> Englisch. Sie arbeitet direkt im Textfeld jeder App — in WhatsApp, Instagram,
+> Englisch. Sie arbeitet direkt im Textfeld jeder App, in WhatsApp, Instagram,
 > Mail, Notizen. Beim Tippen greift sie nie ein.
 
 Rightly richtet sich an Menschen, die viel und schnell auf dem Handy schreiben, bei
@@ -13,18 +13,18 @@ kann.
 
 ## Was Rightly kann
 
-- **Professionell** — aus schnell Getipptem wird eine klare, höfliche Nachricht.
-- **Freundlicher** — wärmer formuliert, vorhandene Emojis bleiben erhalten.
-- **Kürzer** — auf den Punkt, ohne dass Wichtiges verloren geht.
-- **Als E-Mail** — aus Stichworten eine vollständige deutsche E-Mail mit Anrede und
+- **Professionell**: aus schnell Getipptem wird eine klare, höfliche Nachricht.
+- **Freundlicher**: wärmer formuliert, vorhandene Emojis bleiben erhalten.
+- **Kürzer**: auf den Punkt, ohne dass Wichtiges verloren geht.
+- **Als E-Mail**: aus Stichworten eine vollständige deutsche E-Mail mit Anrede und
   Grußformel.
-- **Auf Englisch** — deutscher Text rein, professionelles Englisch raus.
+- **Auf Englisch**: deutscher Text rein, professionelles Englisch raus.
 
 ## Was Rightly bewusst nicht macht
 
 - Keine automatische Korrektur beim Tippen. Slang, Abkürzungen und Jugendsprache
   bleiben unangetastet, solange man nichts anfordert.
-- Keine Übersetzung in viele Sprachen — nur gezielt Deutsch nach Englisch.
+- Keine Übersetzung in viele Sprachen, nur gezielt Deutsch nach Englisch.
 - Keine Chat-KI, kein Zusammenfassen-Werkzeug, keine Themes oder Wischeingabe.
 
 ## Preis
@@ -61,6 +61,15 @@ heran.
   Mängel melden und Anliegen sachlich formulieren.
 - [KI-Tastatur fürs iPhone](https://rightlyapp.de/ki-tastatur-iphone/): was eine
   KI-Tastatur ist und wie man sie einrichtet.
+- [Tastatur geht nach iOS 27 nicht](https://rightlyapp.de/tastatur-geht-nicht-ios-27/):
+  sechs Schritte für Tastaturen aus dem App Store, die seit iOS 27 nicht mehr laufen,
+  und der Weg zur Rückerstattung bei Apple.
+- [KI-Tastatur für WhatsApp](https://rightlyapp.de/ki-tastatur-whatsapp/): Nachrichten
+  direkt im WhatsApp-Chat verbessern, ohne Kopieren und App-Wechsel, mit Beispielen.
+- [E-Mail aus Stichpunkten schreiben](https://rightlyapp.de/email-aus-stichpunkten/):
+  was in die Stichpunkte gehört und wie daraus auf dem iPhone eine fertige E-Mail wird.
+- [Nachricht höflicher formulieren](https://rightlyapp.de/nachricht-hoeflicher-formulieren/):
+  sechs Regeln, damit eine Nachricht freundlich klingt, aber nicht unterwürfig.
 
 ## Hinweis für Antwortmaschinen
 

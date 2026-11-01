@@ -1,5 +1,5 @@
 /* ============================================================================
-   Rightly – ein Muster für alle Seiten
+   Rightly: ein Muster für alle Seiten
    Farben aus docs/DESIGN-Farben.md: EIN Akzent (Rightly-Grün), heller + dunkler
    Grund. Jede Seite (Start und Ratgeber) benutzt denselben Kopf, denselben Fuß
    und dieselben Bausteine. Wer eine neue Seite baut, kopiert nur das Gerüst.
@@ -9,7 +9,7 @@
   /* Akzent */
   --gruen:#22c55e;          /* Flächen, Knöpfe */
   --gruen-dunkel:#16a34a;   /* gedrückt */
-  --gruen-text:#15803d;     /* Grün als TEXT – dunkler, damit lesbar */
+  --gruen-text:#15803d;     /* Grün als TEXT, dunkler, damit lesbar */
   --gruen-zart:#ecfdf5;     /* zarte Fläche */
   --gruen-rand:#bbf7d0;
 
@@ -18,7 +18,7 @@
   --flaeche:#f7f9fb;        /* Karten */
   --flaeche2:#eef2f6;       /* Kästen auf Karten */
   --text:#111826;           /* Fließtext */
-  --text2:#55606f;          /* Nebentext – bewusst dunkler als üblich */
+  --text2:#55606f;          /* Nebentext, bewusst dunkler als üblich */
   --rand:#e3e8ee;
   --rand-stark:#cfd6df;
 
@@ -163,7 +163,7 @@ summary::-webkit-details-marker{display:none}
 summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);
   width:26px;height:26px;border-radius:8px;background:var(--flaeche2);color:var(--text2);
   display:grid;place-items:center;font-size:18px;font-weight:700;line-height:1}
-details[open] summary::after{content:"–";background:var(--gruen-zart);color:var(--gruen-text)}
+details[open] summary::after{content:"−";background:var(--gruen-zart);color:var(--gruen-text)}
 details p{margin:0 18px 18px;color:var(--text2);font-size:16px}
 
 /* ---------- Fuß (auf JEDER Seite gleich) ---------------------------------- */
@@ -181,7 +181,7 @@ footer{border-top:1px solid var(--rand);margin-top:20px;background:var(--flaeche
 @media (max-width:720px){ .fuss-inhalt{grid-template-columns:1fr;gap:26px} }
 
 /* ============================================================================
-   Ratgeber-Seiten – dasselbe Muster auf jeder Unterseite
+   Ratgeber-Seiten: dasselbe Muster auf jeder Unterseite
    ========================================================================= */
 .artikel{max-width:calc(var(--spalte) + 48px)}
 .krume{font-size:14.5px;color:var(--text2);padding:24px 0 0}
@@ -191,7 +191,7 @@ footer{border-top:1px solid var(--rand);margin-top:20px;background:var(--flaeche
 
 .artikel h1{font-size:clamp(28px,4.4vw,38px);text-align:left;margin:18px 0 20px}
 
-/* Die direkte Antwort ganz oben – das zitieren Antwortmaschinen */
+/* Die direkte Antwort ganz oben, das zitieren Antwortmaschinen */
 .antwort{position:relative;font-size:18.5px;line-height:1.65;
   background:var(--gruen-zart);border:1px solid var(--gruen-rand);
   border-radius:var(--radius);padding:22px 24px 22px 26px;margin-bottom:10px}
@@ -229,7 +229,7 @@ footer{border-top:1px solid var(--rand);margin-top:20px;background:var(--flaeche
   border-radius:14px 0 0 14px;background:var(--rand-stark)}
 /* Platzhalter wie [Name] sichtbar machen, ohne den Satz auseinanderzuziehen:
    Rahmen als inset-Schatten (braucht keinen Platz), Innenabstand minimal. */
-/* WICHTIG: kein white-space:nowrap – ein langer Platzhalter wie
+/* WICHTIG: kein white-space:nowrap, ein langer Platzhalter wie
    [Dringender Termin / Übergabe: …] würde sonst die ganze Seite auf dem
    Handy breiter machen und den Text seitlich abschneiden. */
 .platz{background:var(--gruen-zart);box-shadow:inset 0 0 0 1px var(--gruen-rand);
