@@ -81,130 +81,173 @@
 }
 </script>
 
-<link rel="stylesheet" href="/style.css">
+<link rel="preload" href="/fonts/Inter_800ExtraBold.ttf" as="font" type="font/ttf" crossorigin>
+<link rel="icon" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
+<link rel="stylesheet" href="/home.css">
 </head>
 <body>
 
-<header>
-  <div class="wrap kopf-inhalt">
-    <a class="logo" href="/"><span class="r">R</span> Rightly</a>
-    <nav class="hauptnav">
-      <a class="nur-gross" href="/#funktionen">Funktionen</a>
-      <a class="nur-gross" href="/#ratgeber">Ratgeber</a>
-      <a class="nur-gross" href="/#preis">Preis</a>
-      <a class="knopf-klein" href="https://apps.apple.com/de/app/id6794840570">App laden</a>
+<header class="kopf">
+  <div class="breit">
+    <a class="logo" href="/"><img src="/logo.png" alt="" width="30" height="30">Rightly</a>
+    <nav class="nav" aria-label="Hauptmenü">
+      <a href="#funktionen">Funktionen</a>
+      <a href="#so-gehts">So geht's</a>
+      <a href="#fragen">Fragen</a>
+      <a class="knopf klein" href="https://apps.apple.com/de/app/id6794840570">Kostenlos testen</a>
     </nav>
   </div>
 </header>
 
-<main class="wrap">
+<main>
 
-  <div class="hero">
-    <h1>Schreib <span class="g">professionell</span>. In jeder App, auf Knopfdruck.</h1>
-    <p class="lead">Rightly ist eine Tastatur fürs iPhone mit eingebauter KI. Du tippst wie immer.
-      Wenn eine Nachricht wichtig ist, tippst du auf eine Aktion und bekommst sofort eine bessere Version.</p>
-    <a class="cta" href="https://apps.apple.com/de/app/id6794840570">Im App Store laden</a>
-    <p class="unter">7 Tage kostenlos · danach 24,99 € / Jahr · iPhone, iOS 16+</p>
+  <section class="hero">
+    <p class="eye">Rightly · die KI-Tastatur fürs iPhone</p>
+    <h1>Stichpunkte tippen.<br><span>Fertig schreiben lassen.</span></h1>
+    <p class="lead">Stichpunkte in WhatsApp, Mail oder jede App. Ein Tipp, und daraus wird eine fertige Nachricht auf Deutsch.</p>
+    <div class="ctas"><a class="knopf" href="https://apps.apple.com/de/app/id6794840570">Für iPhone laden</a></div>
+    <p class="unter">Im App Store. 7 Tage kostenlos, danach 24,99 € im Jahr. iPhone, iOS 16+</p>
+  </section>
+
+  <div class="szene" aria-hidden="true">
+    <div class="phone"><div class="screen">
+      <div class="island"></div>
+      <div class="status"><span>9:41</span><i>▂▄▆ ▮▮</i></div>
+      <div class="chatkopf"><div class="av">🏠</div>Hausverwaltung Berger</div>
+      <div class="chat">
+        <div class="bin">Guten Tag, gibt es noch Probleme mit der Heizung?</div>
+        <div class="bout">Guten Tag, die Heizung ist seit 3 Wochen aus. Bitte schicken Sie bis Freitag jemanden vorbei. Vielen Dank!</div>
+      </div>
+      <div class="feld">heizung seit 3 wo aus, bis fr jemand schicken</div>
+      <div class="kb">
+        <div class="kbtop"><span>Text erkannt</span><span class="chip">Professionell ⌃</span></div>
+        <div class="grid">
+          <div class="t g">Umformulieren<i>besser schreiben</i></div>
+          <div class="t r">Rechtschreibung<i>nur korrigieren</i></div>
+          <div class="t bl">Als E-Mail<i>aus Stichworten</i></div>
+          <div class="t y">Auf Englisch<i>gleiche Form</i></div>
+          <div class="t c">Englische Mail<i>als E-Mail</i></div>
+          <div class="t p">Was steht da?<i>einfach erklärt</i></div>
+        </div>
+      </div>
+      <div class="home"></div>
+    </div></div>
   </div>
 
-  <section id="funktionen">
-    <h2>Was Rightly kann</h2>
-    <p class="sub">Fünf Aktionen. Kein Schnickschnack.</p>
-    <div class="karten">
-      <div class="karte"><div class="ico">✨</div><h3>Professionell</h3>
-        <p>Aus schnell Getipptem wird eine klare, höfliche Nachricht, mit korrekter Zeichensetzung.</p></div>
-      <div class="karte"><div class="ico">😊</div><h3>Freundlicher</h3>
-        <p>Wärmer und nahbarer formuliert. Deine Emojis bleiben erhalten.</p></div>
-      <div class="karte"><div class="ico">✂️</div><h3>Kürzer</h3>
-        <p>Auf den Punkt gebracht, ohne dass Wichtiges verloren geht.</p></div>
-      <div class="karte"><div class="ico">📧</div><h3>Als E-Mail</h3>
-        <p>Aus ein paar Stichworten wird eine vollständige deutsche E-Mail mit Anrede und Grußformel.</p></div>
-      <div class="karte"><div class="ico">🇬🇧</div><h3>Auf Englisch</h3>
-        <p>Deutsch rein, professionelles Englisch raus. Sinngemäß übersetzt, nicht wörtlich.</p></div>
-      <div class="karte"><div class="ico">↩︎</div><h3>Rückgängig</h3>
-        <p>Erst Vorschau, dann übernehmen. Und wenn es doch nicht passt: zurück zum Original.</p></div>
+  <section class="dunkel" aria-labelledby="beispiel-titel">
+    <div class="schmal">
+      <h2 id="beispiel-titel">So wird aus 9 Wörtern<br>eine Nachricht.</h2>
+      <table class="tab">
+        <tr><td>heizung seit 3 wo aus</td><td>Guten Tag, die Heizung ist seit 3 Wochen aus.</td></tr>
+        <tr><td>bis fr jemand schicken</td><td>Bitte schicken Sie bis Freitag jemanden vorbei.</td></tr>
+        <tr><td>(nichts getippt)</td><td>Vielen Dank!</td></tr>
+      </table>
+      <p class="quelle">Beispiel mit „Umformulieren“.</p>
+      <p class="satz">Ein Rechtschreibprüfer <em>unterstreicht deine Fehler.</em> Rightly <strong>schreibt die Nachricht für dich.</strong> Du sagst, was rein soll. Den Rest machen wir.</p>
     </div>
   </section>
 
-  <section id="so-gehts">
-    <h2>So funktioniert es</h2>
-    <p class="sub">Drei Schritte, dann läuft es überall.</p>
-    <ol class="schritte">
-      <li><div><strong>Tastatur hinzufügen</strong><br>
-        <span class="dazu">Einstellungen → Allgemein → Tastatur → Tastaturen → Rightly. Vollzugriff erlauben, damit die KI erreichbar ist.</span></div></li>
-      <li><div><strong>Nachricht tippen</strong><br>
-        <span class="dazu">In WhatsApp, Instagram, Mail, wo du willst. Rightly tippt sich wie die normale Tastatur.</span></div></li>
-      <li><div><strong>Aktion antippen</strong><br>
-        <span class="dazu">Umformulieren, E-Mail oder Englisch. Vorschau ansehen, mit ✓ übernehmen.</span></div></li>
-    </ol>
-  </section>
-
-  <section id="anders">
-    <h2>Warum Rightly anders ist</h2>
-    <div class="karten">
-      <div class="karte"><h3>Nichts passiert ungefragt</h3>
-        <p>Andere Tastaturen korrigieren beim Tippen mit und zerstören dabei Slang und Abkürzungen.
-           Rightly greift nur ein, wenn du es antippst.</p></div>
-      <div class="karte"><h3>Ehrlicher Preis</h3>
-        <p>Ein Jahrespreis, klar genannt. Kein 6,99-€-Wochen-Abo, keine Trial-Falle.</p></div>
-      <div class="karte"><h3>Deutsch im Fokus</h3>
-        <p>Kein „40 Sprachen"-Versprechen. Dafür sitzt Deutsch. Und Deutsch → Englisch für E-Mails.</p></div>
-      <div class="karte"><h3>Deine Texte bleiben deine</h3>
-        <p>Wir speichern nichts. Übertragen wird nur, was du selbst zur Umformulierung schickst.</p></div>
+  <section class="abschnitt" id="funktionen" aria-labelledby="funktionen-titel">
+    <div class="breit">
+      <h2 id="funktionen-titel">Sechs Knöpfe.<br>Jeder macht eine Sache.</h2>
+      <p class="sub">Alle sitzen direkt in der Tastatur. Nichts kopieren, keine App wechseln.</p>
+      <div class="kacheln">
+        <div class="kachel g"><div class="sym">✦</div><h3>Umformulieren</h3>
+          <p>Aus schnell Getipptem wird eine klare Nachricht. Den Ton wählst du oben in der Tastatur.</p>
+          <div class="tag"><b>💼 Professionell</b><b>😊 Freundlich</b><b>✂️ Kürzer</b><b>⚠️ Ernst</b></div></div>
+        <div class="kachel r"><div class="sym">✓</div><h3>Rechtschreibung</h3>
+          <p>Korrigiert nur Fehler und Zeichensetzung. Deine Wortwahl, Slang und Abkürzungen bleiben, wie sie sind.</p></div>
+        <div class="kachel bl"><div class="sym">✉</div><h3>Als E-Mail</h3>
+          <p>Aus ein paar Stichworten wird eine vollständige deutsche E-Mail mit Anrede und Grußformel.</p></div>
+        <div class="kachel y"><div class="sym">EN</div><h3>Übersetzen</h3>
+          <p>Deutsch rein, fertige Nachricht in einer anderen Sprache raus. Sinngemäß, nicht Wort für Wort. Die Form bleibt: Chat bleibt Chat.</p>
+          <div class="tag"><b>Englisch</b><b>Türkisch, Polnisch, Französisch: bald</b></div></div>
+        <div class="kachel c"><div class="sym">✉</div><h3>Englische Mail</h3>
+          <p>Aus deutschen Stichpunkten eine komplette englische E-Mail, mit passender Anrede und Schluss.</p></div>
+        <div class="kachel p"><div class="sym">?</div><h3>Was steht da?</h3>
+          <p>Brief vom Amt, Vertrag, Fachsprache: Rightly erklärt dir in einfachen Worten, was gemeint ist.</p></div>
+      </div>
+      <div class="extras">
+        <div class="extra"><h3>Eigene Befehle <span class="bald">bald</span></h3><p>Leg in der App eigene Knöpfe an, zum Beispiel „Mach es lockerer“ oder „Antwort auf eine Absage“.</p></div>
+        <div class="extra"><h3>Erst ansehen, dann einsetzen</h3><p>Das Ergebnis kommt als Vorschau. Einsetzen, kopieren oder verwerfen. Und mit Rückgängig zurück zum Original.</p></div>
+        <div class="extra"><h3>In jeder App</h3><p>WhatsApp, Instagram, TikTok, Facebook, iMessage, Mail, Notizen, LinkedIn: überall, wo du tippen kannst.</p></div>
+      </div>
     </div>
   </section>
 
-  <section id="preis">
-    <h2>Preis</h2>
-    <p class="sub">Eine Stufe. Keine Überraschungen.</p>
-    <div class="preis">
-      <div class="zahl">24,99 €</div>
-      <div class="je">pro Jahr · die ersten 7 Tage kostenlos</div>
-      <ul class="liste">
-        <li>Alle Aktionen ohne Zusatzkosten</li>
-        <li>Bis zu 50 Umformulierungen pro Tag</li>
-        <li>Jederzeit kündbar im App Store</li>
-        <li>Kein Konto, keine Registrierung</li>
-      </ul>
-      <p class="preis-cta"><a class="cta" href="https://apps.apple.com/de/app/id6794840570">Jetzt kostenlos testen</a></p>
+  <section class="abschnitt hell" id="anders" aria-labelledby="anders-titel">
+    <div class="breit">
+      <h2 id="anders-titel">Warum Rightly?</h2>
+      <div class="gruende">
+        <div><h3>Schreibt, statt zu unterstreichen.</h3>
+          <p>Prüfer markieren Fehler in deinem Text. Rightly macht aus deinen Stichpunkten den fertigen Text, auf Deutsch, für Chef, Vermieter, Amt oder Kunden.</p></div>
+        <div><h3>Nichts passiert ungefragt.</h3>
+          <p>Beim Tippen greift die KI nie ein. Rightly tippt sich wie die normale Apple-Tastatur. Erst dein Tipp auf einen Knopf löst etwas aus.</p></div>
+        <div><h3>Ein ehrlicher Preis.</h3>
+          <p>Ein Jahrespreis, klar genannt. Kein Wochen-Abo, keine Trial-Falle, jederzeit im App Store kündbar.</p></div>
+        <div><h3>Deine Texte bleiben deine.</h3>
+          <p>Wir speichern nichts. Übertragen wird nur, was du selbst mit einem Knopf abschickst, und nur dafür.</p></div>
+      </div>
     </div>
   </section>
 
-  <section id="ratgeber">
-    <h2>Ratgeber: Texte umschreiben</h2>
-    <p class="sub">Anleitungen und Vorlagen zum Umschreiben, auch ohne die App nützlich.</p>
-    <div class="weiter">
-      <a href="/text-umschreiben/">Text umschreiben: die Anleitung
-        <span>Fünf Schritte, Vorher/Nachher-Beispiele und die häufigsten Fehler.</span></a>
-      <a href="/ki-text-umschreiben/">Text mit KI umschreiben
-        <span>Was die Werkzeuge gut können, wo sie danebenliegen, und was mit deinem Text passiert.</span></a>
-      <a href="/satz-umschreiben/">Satz umschreiben
-        <span>Acht Muster für den einen Satz, der nicht sitzt.</span></a>
-      <a href="/whatsapp-nachricht-professionell-formulieren/">WhatsApp-Nachricht professionell formulieren
-        <span>Fünf Regeln, Beispiele und Vorlagen zum Kopieren.</span></a>
-      <a href="/email-auf-englisch-schreiben/">E-Mail auf Englisch schreiben
-        <span>Aufbau, Anrede, Schlussformeln. Und die typischen deutschen Fehler.</span></a>
-      <a href="/krankmeldung-per-whatsapp/">Krankmeldung per WhatsApp an den Chef
-        <span>Was hineingehört, was nicht. Mit fertigen Formulierungen.</span></a>
-      <a href="/nachricht-an-vermieter-schreiben/">Nachricht an den Vermieter schreiben
-        <span>Mangel melden, Kaution zurückfordern, Termin verschieben.</span></a>
-      <a href="/ki-tastatur-iphone/">KI-Tastatur fürs iPhone: wie das funktioniert
-        <span>Was so eine Tastatur kann und worauf du beim Vollzugriff achten solltest.</span></a>
-      <a href="/tastatur-geht-nicht-ios-27/">Tastatur geht nach iOS 27 nicht
-        <span>Sechs Schritte, die du selbst prüfen kannst, und wie du bei Apple eine Erstattung beantragst.</span></a>
-      <a href="/ki-tastatur-whatsapp/">KI-Tastatur für WhatsApp
-        <span>Nachrichten direkt im Chat verbessern, ohne Kopieren und App-Wechsel.</span></a>
-      <a href="/email-aus-stichpunkten/">E-Mail aus Stichpunkten schreiben
-        <span>Was in die Stichpunkte gehört, und drei Beispiele vom Stichwort zur fertigen E-Mail.</span></a>
-      <a href="/nachricht-hoeflicher-formulieren/">Nachricht höflicher formulieren
-        <span>Sechs Regeln für freundlich statt unterwürfig.</span></a>
+  <section class="abschnitt" id="so-gehts" aria-labelledby="so-titel">
+    <div class="breit">
+      <h2 id="so-titel">In einer Minute eingerichtet.</h2>
+      <ol class="schritte">
+        <li><strong>Tastatur hinzufügen</strong><span>Einstellungen, Allgemein, Tastatur, Tastaturen, Rightly. Vollzugriff erlauben, damit die KI erreichbar ist.</span></li>
+        <li><strong>Wie immer tippen</strong><span>In WhatsApp, Mail oder wo du willst. Ruhig nur Stichpunkte, mit Fehlern.</span></li>
+        <li><strong>Knopf antippen</strong><span>Vorschau ansehen und einsetzen. Fertig.</span></li>
+      </ol>
     </div>
   </section>
 
-  <section id="faq">
-    <h2>Häufige Fragen</h2>
-    <p class="sub">Kurz und ehrlich beantwortet.</p>
+  <section class="abschnitt hell" id="preis" aria-labelledby="preis-titel">
+    <div class="breit">
+      <h2 id="preis-titel">Preis</h2>
+      <p class="sub">Eine Stufe. Keine Überraschungen.</p>
+      <div class="preis">
+        <div>
+          <div class="zahl">24,99 €</div>
+          <div class="je">pro Jahr · die ersten 7 Tage kostenlos</div>
+          <a class="knopf" href="https://apps.apple.com/de/app/id6794840570">Jetzt kostenlos testen</a>
+        </div>
+        <ul class="liste">
+          <li>Alle Knöpfe ohne Zusatzkosten</li>
+          <li>Bis zu 50 Aktionen pro Tag</li>
+          <li>Jederzeit kündbar im App Store</li>
+          <li>Kein Konto, keine Registrierung</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
+  <section class="abschnitt" id="ratgeber" aria-labelledby="ratgeber-titel">
+    <div class="breit">
+      <h2 id="ratgeber-titel">Ratgeber</h2>
+      <p class="sub">Anleitungen und Vorlagen, auch ohne die App nützlich.</p>
+      <div class="ratgeber">
+        <a href="/text-umschreiben/">Text umschreiben<span>Fünf Schritte, Vorher/Nachher-Beispiele und die häufigsten Fehler.</span></a>
+        <a href="/ki-text-umschreiben/">Text mit KI umschreiben<span>Was die Werkzeuge gut können und wo sie danebenliegen.</span></a>
+        <a href="/satz-umschreiben/">Satz umschreiben<span>Acht Muster für den einen Satz, der nicht sitzt.</span></a>
+        <a href="/whatsapp-nachricht-professionell-formulieren/">WhatsApp-Nachricht professionell formulieren<span>Fünf Regeln, Beispiele und Vorlagen zum Kopieren.</span></a>
+        <a href="/email-auf-englisch-schreiben/">E-Mail auf Englisch schreiben<span>Aufbau, Anrede, Schlussformeln und typische deutsche Fehler.</span></a>
+        <a href="/krankmeldung-per-whatsapp/">Krankmeldung per WhatsApp<span>Was hineingehört, was nicht. Mit fertigen Formulierungen.</span></a>
+        <a href="/nachricht-an-vermieter-schreiben/">Nachricht an den Vermieter<span>Mangel melden, Kaution zurückfordern, Termin verschieben.</span></a>
+        <a href="/ki-tastatur-iphone/">KI-Tastatur fürs iPhone<span>Was so eine Tastatur kann und worauf du beim Vollzugriff achtest.</span></a>
+        <a href="/tastatur-geht-nicht-ios-27/">Tastatur geht nach iOS 27 nicht<span>Sechs Schritte zum Selbstprüfen und der Weg zur Erstattung.</span></a>
+        <a href="/ki-tastatur-whatsapp/">KI-Tastatur für WhatsApp<span>Nachrichten direkt im Chat verbessern, ohne Kopieren.</span></a>
+        <a href="/email-aus-stichpunkten/">E-Mail aus Stichpunkten<span>Was in die Stichpunkte gehört, mit drei Beispielen.</span></a>
+        <a href="/nachricht-hoeflicher-formulieren/">Nachricht höflicher formulieren<span>Sechs Regeln für freundlich statt unterwürfig.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="abschnitt hell" id="fragen" aria-labelledby="fragen-titel">
+    <div class="schmal">
+      <h2 id="fragen-titel">Häufige Fragen</h2>
+      <div class="fragen">
     <details open><summary>Ist Rightly ein Rechtschreibprüfer wie Grammarly oder LanguageTool?</summary>
       <p>Nein, Rightly ist eine andere Art App. Rechtschreibprüfer markieren Fehler in einem Text, den du selbst geschrieben hast. Rightly schreibt den Text für dich: Du tippst ein paar Stichpunkte oder eine schnelle Nachricht, tippst einmal, und bekommst eine fertige Nachricht oder E-Mail auf Deutsch, passend für Chef, Vermieter, Amt oder Kunden. Rechtschreibung wird dabei gleich mit erledigt, ist aber nicht der Kern. Rightly ist eine iPhone-Tastatur und arbeitet direkt in WhatsApp, Mail und jeder anderen App.</p></details>
 
@@ -237,43 +280,50 @@
     <details><summary>Wie kündige ich?</summary>
       <p>Wie jedes App-Store-Abo: iPhone-Einstellungen → dein Name → Abonnements → Rightly → kündigen.
          Es läuft dann bis zum Ende des bezahlten Zeitraums weiter.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="schluss">
+    <h2>Probier es aus.</h2>
+    <p class="sub">Im App Store, 7 Tage kostenlos.</p>
+    <div class="ctas"><a class="knopf" href="https://apps.apple.com/de/app/id6794840570">Für iPhone laden</a></div>
   </section>
 
 </main>
 
 <footer>
-  <div class="wrap fuss-inhalt">
-    <div class="fuss-marke">
-      <a class="logo" href="/"><span class="r">R</span> Rightly</a>
-      <p>Die KI-Tastatur fürs iPhone. Tippen wie immer. Texte umschreiben auf Knopfdruck,
-         direkt in WhatsApp, Instagram und Mail.</p>
+  <div class="breit">
+    <div class="fuss">
+      <div>
+        <a class="logo" href="/"><img src="/logo.png" alt="" width="30" height="30">Rightly</a>
+        <p>Die KI-Tastatur fürs iPhone. Stichpunkte tippen, fertige Nachricht senden. Direkt in WhatsApp, Mail und jeder App.</p>
+      </div>
+      <nav class="zwei" aria-label="Ratgeber">
+        <a href="/text-umschreiben/">Text umschreiben</a>
+        <a href="/text-umschreiben-kostenlos/">Text umschreiben kostenlos</a>
+        <a href="/text-verbessern/">Text verbessern</a>
+        <a href="/ki-text-umschreiben/">Text mit KI umschreiben</a>
+        <a href="/satz-umschreiben/">Satz umschreiben</a>
+        <a href="/whatsapp-nachricht-professionell-formulieren/">WhatsApp professionell formulieren</a>
+        <a href="/email-auf-englisch-schreiben/">E-Mail auf Englisch schreiben</a>
+        <a href="/krankmeldung-per-whatsapp/">Krankmeldung per WhatsApp</a>
+        <a href="/nachricht-an-vermieter-schreiben/">Nachricht an den Vermieter</a>
+        <a href="/ki-tastatur-iphone/">KI-Tastatur fürs iPhone</a>
+        <a href="/tastatur-geht-nicht-ios-27/">Tastatur geht nach iOS 27 nicht</a>
+        <a href="/ki-tastatur-whatsapp/">KI-Tastatur für WhatsApp</a>
+        <a href="/email-aus-stichpunkten/">E-Mail aus Stichpunkten</a>
+        <a href="/nachricht-hoeflicher-formulieren/">Nachricht höflicher formulieren</a>
+      </nav>
+      <nav aria-label="Rightly">
+        <h3>Rightly</h3>
+        <a href="https://apps.apple.com/de/app/id6794840570">Im App Store laden</a>
+        <a href="https://lucassancar94-dev.github.io/rightly-legal/">Datenschutz &amp; Impressum</a>
+        <a href="mailto:rightlyinfo@gmail.com">Kontakt</a>
+      </nav>
     </div>
-    <nav class="fuss-spalte">
-      <h3>Ratgeber</h3>
-      <a href="/text-umschreiben/">Text umschreiben</a>
-      <a href="/text-umschreiben-kostenlos/">Text umschreiben kostenlos</a>
-      <a href="/text-verbessern/">Text verbessern</a>
-      <a href="/ki-text-umschreiben/">Text mit KI umschreiben</a>
-      <a href="/satz-umschreiben/">Satz umschreiben</a>
-      <a href="/whatsapp-nachricht-professionell-formulieren/">WhatsApp professionell formulieren</a>
-      <a href="/email-auf-englisch-schreiben/">E-Mail auf Englisch schreiben</a>
-      <a href="/krankmeldung-per-whatsapp/">Krankmeldung per WhatsApp</a>
-      <a href="/nachricht-an-vermieter-schreiben/">Nachricht an den Vermieter</a>
-      <a href="/ki-tastatur-iphone/">KI-Tastatur fürs iPhone</a>
-      <a href="/tastatur-geht-nicht-ios-27/">Tastatur geht nach iOS 27 nicht</a>
-      <a href="/ki-tastatur-whatsapp/">KI-Tastatur für WhatsApp</a>
-      <a href="/email-aus-stichpunkten/">E-Mail aus Stichpunkten</a>
-      <a href="/nachricht-hoeflicher-formulieren/">Nachricht höflicher formulieren</a>
-    </nav>
-    <nav class="fuss-spalte">
-      <h3>Rightly</h3>
-      <a href="/">Startseite</a>
-      <a href="https://apps.apple.com/de/app/id6794840570">Im App Store laden</a>
-      <a href="https://lucassancar94-dev.github.io/rightly-legal/">Datenschutz &amp; Impressum</a>
-      <a href="mailto:rightlyinfo@gmail.com">Kontakt</a>
-    </nav>
+    <div class="fuss-unten">© 2026 Rightly · Eine KI-Tastatur für das iPhone · 24,99 € pro Jahr, 7 Tage kostenlos</div>
   </div>
-  <div class="wrap fuss-unten">© 2026 Rightly · Eine KI-Tastatur für das iPhone · 24,99 € pro Jahr, 7 Tage kostenlos</div>
 </footer>
 
 </body>
