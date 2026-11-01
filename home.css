@@ -146,3 +146,25 @@ footer{border-top:1px solid var(--linie);padding:56px 0 32px;font-size:14px;colo
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .bald{display:inline-block;vertical-align:middle;margin-left:6px;font-size:11px;font-weight:700;color:var(--blau);background:#e8f2ff;border-radius:999px;padding:3px 8px}
+/* Scroll-Demo: Handy bleibt stehen, beim Scrollen wechselt der Chat */
+.demo{position:relative;padding:0 20px}
+.demo-sticky{position:sticky;top:64px;height:calc(100vh - 64px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.demo-schritte{margin-top:calc(-100vh + 64px)}
+.demo-schritte div{height:85vh}
+.demo-schritte div:last-child{height:100vh}
+.demo-titel{margin:0;font-size:17px;color:var(--grau,#6b6f78);text-align:center;min-height:24px}
+.demo-titel b{color:var(--ink);margin-right:6px}
+.demo-fuss{margin:0;font-size:12px;color:#9a9ea6}
+.punkte{display:flex;gap:7px}
+.punkte i{width:7px;height:7px;border-radius:50%;background:#d4d6da;transition:background .3s,width .3s}
+.punkte i.an{background:var(--ink);width:20px;border-radius:4px}
+.demo .bin,.demo .bout{animation:rein .35s ease both}
+@keyframes rein{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.demo .t{transition:transform .2s,box-shadow .2s,opacity .2s}
+.demo .grid.wahl .t{opacity:.45}
+.demo .grid.wahl .t.aktiv{opacity:1;transform:scale(.94);box-shadow:0 0 0 2px #fff}
+.erklaer{display:none;margin:0 10px 8px;background:#f2f2f7;color:#111;border-radius:14px;padding:10px 12px;font-size:12.5px;line-height:1.4;animation:rein .35s ease both}
+.erklaer.an{display:block}
+.erklaer b{display:block;font-size:11px;color:#6b6f78;margin-bottom:3px}
+.feld.leer{color:#55626b}
+@media (prefers-reduced-motion:reduce){.demo .bin,.demo .bout,.erklaer{animation:none}}

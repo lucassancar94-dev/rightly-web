@@ -110,30 +110,38 @@
     <p class="unter">Im App Store. 7 Tage kostenlos, danach 24,99 € im Jahr. iPhone, iOS 16+</p>
   </section>
 
-  <div class="szene" aria-hidden="true">
-    <div class="phone"><div class="screen">
-      <div class="island"></div>
-      <div class="status"><span>9:41</span><i>▂▄▆ ▮▮</i></div>
-      <div class="chatkopf"><div class="av">🏠</div>Hausverwaltung Berger</div>
-      <div class="chat">
-        <div class="bin">Guten Tag, gibt es noch Probleme mit der Heizung?</div>
-        <div class="bout">Guten Tag, die Heizung ist seit 3 Wochen aus. Bitte schicken Sie bis Freitag jemanden vorbei. Vielen Dank!</div>
-      </div>
-      <div class="feld">heizung seit 3 wo aus, bis fr jemand schicken</div>
-      <div class="kb">
-        <div class="kbtop"><span>Text erkannt</span><span class="chip">Professionell ⌃</span></div>
-        <div class="grid">
-          <div class="t g">Umformulieren<i>besser schreiben</i></div>
-          <div class="t r">Rechtschreibung<i>nur korrigieren</i></div>
-          <div class="t bl">Als E-Mail<i>aus Stichworten</i></div>
-          <div class="t y">Auf Englisch<i>gleiche Form</i></div>
-          <div class="t c">Englische Mail<i>als E-Mail</i></div>
-          <div class="t p">Was steht da?<i>einfach erklärt</i></div>
+  <div class="demo" id="demo">
+    <div class="demo-sticky">
+      <p class="demo-titel" id="demoTitel"><b>Umformulieren</b> aus Stichpunkten wird eine Nachricht</p>
+      <div class="phone" aria-hidden="true"><div class="screen">
+        <div class="island"></div>
+        <div class="status"><span>9:41</span><i>▂▄▆ ▮▮</i></div>
+        <div class="chatkopf"><div class="av" id="demoAv">🏠</div><span id="demoName">Hausverwaltung Berger</span></div>
+        <div class="chat" id="demoChat">
+          <div class="bin">Guten Tag, gibt es noch Probleme mit der Heizung?</div>
+          <div class="bout">Guten Tag, die Heizung ist seit 3 Wochen aus. Bitte schicken Sie bis Freitag jemanden vorbei. Vielen Dank!</div>
         </div>
-      </div>
-      <div class="home"></div>
-    </div></div>
+        <div class="erklaer" id="demoErklaer"><b>Einfach erklärt</b><span></span></div>
+        <div class="feld" id="demoFeld">heizung seit 3 wo aus, bis fr jemand schicken</div>
+        <div class="kb">
+          <div class="kbtop"><span id="demoStatus">Text erkannt</span><span class="chip" id="demoChip">Professionell ⌃</span></div>
+          <div class="grid">
+            <div class="t g" data-k="g">Umformulieren<i>besser schreiben</i></div>
+            <div class="t r" data-k="r">Rechtschreibung<i>nur korrigieren</i></div>
+            <div class="t bl" data-k="bl">Als E-Mail<i>aus Stichworten</i></div>
+            <div class="t y" data-k="y">Auf Englisch<i>gleiche Form</i></div>
+            <div class="t c" data-k="c">Englische Mail<i>als E-Mail</i></div>
+            <div class="t p" data-k="p">Was steht da?<i>einfach erklärt</i></div>
+          </div>
+        </div>
+        <div class="home"></div>
+      </div></div>
+      <div class="punkte" aria-hidden="true"><i class="an"></i><i></i><i></i><i></i></div>
+      <p class="demo-fuss">Beispiele. Scroll weiter für den nächsten Chat.</p>
+    </div>
+    <div class="demo-schritte" aria-hidden="true"><div data-i="0"></div><div data-i="1"></div><div data-i="2"></div><div data-i="3"></div></div>
   </div>
+  <script src="/demo.js" defer></script>
 
   <section class="dunkel" aria-labelledby="beispiel-titel">
     <div class="schmal">
