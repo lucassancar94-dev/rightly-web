@@ -24,12 +24,12 @@ kann.
 
 - Keine automatische Korrektur beim Tippen. Slang, Abkürzungen und Jugendsprache
   bleiben unangetastet, solange man nichts anfordert.
-- Keine Übersetzung in viele Sprachen, nur gezielt Deutsch nach Englisch.
+- Keine Übersetzung in viele Sprachen, nur gezielt ins Englische, Türkische, Polnische und Französische.
 - Keine Chat-KI, kein Zusammenfassen-Werkzeug, keine Themes oder Wischeingabe.
 
 ## Preis
 
-Drei Tage kostenlos, danach 24,99 € pro Jahr. Kein Wochen-Abo, jederzeit über den
+Drei Tage kostenlos, danach 24,99 € pro Jahr. Alternativ 9,99 € pro Monat. Kein Wochen-Abo, jederzeit über den
 App Store kündbar.
 
 ## Datenschutz
