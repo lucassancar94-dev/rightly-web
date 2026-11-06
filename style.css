@@ -1,26 +1,32 @@
 /* ============================================================================
    Rightly: ein Muster für alle Seiten
-   Farben aus docs/DESIGN-Farben.md: EIN Akzent (Rightly-Grün), heller + dunkler
-   Grund. Jede Seite (Start und Ratgeber) benutzt denselben Kopf, denselben Fuß
+   Seit 06.11.2026 im Look der Startseite (home.css): Inter, Schwarz, EIN Akzent
+   Blau, nur heller Grund. Variablennamen --gruen* bleiben, tragen aber Blau. Jede Seite (Start und Ratgeber) benutzt denselben Kopf, denselben Fuß
    und dieselben Bausteine. Wer eine neue Seite baut, kopiert nur das Gerüst.
    ========================================================================= */
 
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(/fonts/Inter_500Medium.ttf) format("truetype")}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(/fonts/Inter_600SemiBold.ttf) format("truetype")}
+@font-face{font-family:Inter;font-weight:700;font-display:swap;src:url(/fonts/Inter_700Bold.ttf) format("truetype")}
+@font-face{font-family:Inter;font-weight:800;font-display:swap;src:url(/fonts/Inter_800ExtraBold.ttf) format("truetype")}
+
 :root{
+  --ink:#0e1013;
   /* Akzent */
-  --gruen:#22c55e;          /* Flächen, Knöpfe */
-  --gruen-dunkel:#16a34a;   /* gedrückt */
-  --gruen-text:#15803d;     /* Grün als TEXT, dunkler, damit lesbar */
-  --gruen-zart:#ecfdf5;     /* zarte Fläche */
-  --gruen-rand:#bbf7d0;
+  --gruen:#0a84ff;          /* Flächen, Knöpfe */
+  --gruen-dunkel:#0066d6;   /* gedrückt */
+  --gruen-text:#0062cc;     /* Grün als TEXT, dunkler, damit lesbar */
+  --gruen-zart:#eef5ff;     /* zarte Fläche */
+  --gruen-rand:#cfe3ff;
 
   /* Grund */
   --bg:#ffffff;
-  --flaeche:#f7f9fb;        /* Karten */
-  --flaeche2:#eef2f6;       /* Kästen auf Karten */
-  --text:#111826;           /* Fließtext */
-  --text2:#55606f;          /* Nebentext, bewusst dunkler als üblich */
-  --rand:#e3e8ee;
-  --rand-stark:#cfd6df;
+  --flaeche:#f4f5f7;        /* Karten */
+  --flaeche2:#ececef;       /* Kästen auf Karten */
+  --text:#0e1013;           /* Fließtext */
+  --text2:#5f636b;          /* Nebentext, bewusst dunkler als üblich */
+  --rand:#ececef;
+  --rand-stark:#d9dade;
 
   /* Vorher (falsch) */
   --rot-flaeche:#fef2f2; --rot-rand:#fbcfcf; --rot-text:#b42318;
@@ -32,32 +38,11 @@
   --breit:1000px;           /* Kopf, Fuß, Kartenraster */
 }
 
-@media (prefers-color-scheme: dark){
-  :root{
-    --gruen:#22c55e; --gruen-dunkel:#16a34a;
-    --gruen-text:#5ee08b;
-    --gruen-zart:rgba(34,197,94,.10);
-    --gruen-rand:rgba(94,224,139,.30);
-
-    --bg:#0e1116;
-    --flaeche:#171b22;
-    --flaeche2:#1e242d;
-    --text:#f2f4f7;
-    --text2:#a4aebb;
-    --rand:#272e38;
-    --rand-stark:#39424e;
-
-    --rot-flaeche:rgba(248,113,113,.10); --rot-rand:rgba(248,113,113,.30); --rot-text:#fca5a5;
-
-    --schatten:0 1px 2px rgba(0,0,0,.30), 0 8px 24px -12px rgba(0,0,0,.60);
-    --schatten-hoch:0 2px 4px rgba(0,0,0,.35), 0 18px 36px -16px rgba(0,0,0,.70);
-  }
-}
 
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:Inter,-apple-system,BlinkMacSystemFont,Arial,sans-serif;font-weight:500;
   background:var(--bg);color:var(--text);
   font-size:17px;line-height:1.7;
   -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
@@ -81,33 +66,34 @@ header{
              min-height:64px;padding-top:10px;padding-bottom:10px}
 .logo{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:19px;
       letter-spacing:-.01em;text-decoration:none;color:var(--text)}
+.logo img{width:30px;height:30px;border-radius:8px;flex:0 0 30px}
 .logo .r{width:32px;height:32px;border-radius:9px;flex:0 0 32px;
-         background:linear-gradient(140deg,#34d777,var(--gruen-dunkel));
+         background:linear-gradient(140deg,var(--gruen),var(--gruen-dunkel));
          color:#fff;display:grid;place-items:center;font-size:18px;font-weight:800;
-         box-shadow:0 2px 8px rgba(22,163,74,.35)}
+         box-shadow:0 2px 8px rgba(10,132,255,.35)}
 .hauptnav{display:flex;align-items:center;gap:26px}
 .hauptnav a{color:var(--text2);text-decoration:none;font-size:15.5px;font-weight:600}
 .hauptnav a:hover{color:var(--text)}
-.knopf-klein{background:var(--gruen);color:#fff !important;padding:9px 17px;border-radius:10px;
-             font-size:15px;font-weight:700;box-shadow:0 2px 10px rgba(22,163,74,.30)}
-.knopf-klein:hover{background:var(--gruen-dunkel)}
+.knopf-klein{background:var(--ink);color:#fff !important;padding:9px 18px;border-radius:999px;
+             font-size:14px;font-weight:700;text-decoration:none}
+.knopf-klein:hover{background:#2a2d33}
 @media (max-width:720px){ .hauptnav .nur-gross{display:none} .kopf-inhalt{gap:10px} }
 
 /* ---------- Startseite: Hero ---------------------------------------------- */
 .hero{padding:74px 0 58px;text-align:center;position:relative;overflow:hidden}
 .hero::before{content:"";position:absolute;inset:-40% 20% auto 20%;height:420px;
-  background:radial-gradient(60% 60% at 50% 40%, rgba(34,197,94,.18), transparent 70%);
+  background:radial-gradient(60% 60% at 50% 40%, rgba(10,132,255,.18), transparent 70%);
   pointer-events:none;z-index:-1}
 h1{font-size:clamp(32px,5.2vw,46px);line-height:1.14;letter-spacing:-.025em;
    font-weight:800;margin-bottom:18px}
-h1 .g{background:linear-gradient(120deg,#34d777,var(--gruen-dunkel));
+h1 .g{background:linear-gradient(120deg,var(--gruen),var(--gruen-dunkel));
       -webkit-background-clip:text;background-clip:text;color:transparent}
 .lead{font-size:19px;color:var(--text2);max-width:600px;margin:0 auto 30px}
-.cta{display:inline-block;background:var(--gruen);color:#fff;text-decoration:none;font-weight:700;
+.cta{display:inline-block;background:var(--ink);border-radius:999px !important;color:#fff;text-decoration:none;font-weight:700;
      padding:16px 34px;border-radius:14px;font-size:17.5px;
-     box-shadow:0 4px 14px rgba(22,163,74,.32);transition:transform .12s ease, box-shadow .12s ease}
-.cta:hover{background:var(--gruen-dunkel);transform:translateY(-1px);
-           box-shadow:0 8px 22px rgba(22,163,74,.38)}
+     box-shadow:0 4px 14px rgba(10,132,255,.32);transition:transform .12s ease, box-shadow .12s ease}
+.cta:hover{background:#2a2d33;transform:translateY(-1px);
+           box-shadow:0 8px 22px rgba(10,132,255,.38)}
 .unter{font-size:14.5px;color:var(--text2);margin-top:14px}
 
 /* ---------- Abschnitte ----------------------------------------------------- */
@@ -137,7 +123,7 @@ ol.schritte li{counter-increment:s;display:flex;gap:16px;align-items:flex-start}
 ol.schritte li::before{content:counter(s);flex:0 0 30px;height:30px;border-radius:50%;
   background:var(--gruen);color:#fff;display:grid;place-items:center;
   font-size:14.5px;font-weight:800;margin-top:2px;
-  box-shadow:0 2px 8px rgba(22,163,74,.30)}
+  box-shadow:0 2px 8px rgba(10,132,255,.30)}
 ol.schritte .dazu{display:block;color:var(--text2);font-size:15.5px;margin-top:2px}
 
 /* Preis */
@@ -196,7 +182,7 @@ footer{border-top:1px solid var(--rand);margin-top:20px;background:var(--flaeche
   background:var(--gruen-zart);border:1px solid var(--gruen-rand);
   border-radius:var(--radius);padding:22px 24px 22px 26px;margin-bottom:10px}
 .antwort::before{content:"";position:absolute;left:0;top:14px;bottom:14px;width:4px;
-  border-radius:0 4px 4px 0;background:linear-gradient(180deg,#34d777,var(--gruen-dunkel))}
+  border-radius:0 4px 4px 0;background:linear-gradient(180deg,var(--gruen),var(--gruen-dunkel))}
 
 .artikel section{padding:38px 0}
 .artikel p,.artikel li{font-size:16.8px}
