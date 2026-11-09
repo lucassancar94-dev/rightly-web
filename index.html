@@ -107,7 +107,7 @@
     <h1>Stichpunkte tippen.<br><span>Fertig schreiben lassen.</span></h1>
     <p class="lead">Stichpunkte in WhatsApp, Mail oder jede App. Ein Tipp, und daraus wird eine fertige Nachricht auf Deutsch.</p>
     <div class="ctas"><a class="knopf" href="https://apps.apple.com/de/app/id6794840570">Für iPhone laden</a></div>
-    <p class="unter">Im App Store. 3 Tage kostenlos, danach 24,99 € im Jahr. iPhone, iOS 16+</p>
+    <p class="unter" id="bd-unter">Im App Store. 3 Tage kostenlos, danach 24,99 € im Jahr. iPhone, iOS 16+</p>
   </section>
 
   <div class="demo" id="demo">
@@ -217,8 +217,9 @@
       <p class="sub">Jahr oder Monat. Keine Überraschungen.</p>
       <div class="preis">
         <div>
-          <div class="zahl">24,99 €</div>
-          <div class="je">pro Jahr · die ersten 3 Tage kostenlos<br>oder 9,99 € im Monat</div>
+          <div class="bd-schild" id="bd-schild" hidden>BLACK DEALS · NUR BIS 27.11.</div>
+          <div class="zahl" id="bd-zahl">24,99 €</div>
+          <div class="je" id="bd-je">pro Jahr · die ersten 3 Tage kostenlos<br>oder 9,99 € im Monat</div>
           <a class="knopf" href="https://apps.apple.com/de/app/id6794840570">Jetzt kostenlos testen</a>
         </div>
         <ul class="liste">
@@ -333,9 +334,28 @@
         <a href="mailto:rightlyinfo@gmail.com">Kontakt</a>
       </nav>
     </div>
-    <div class="fuss-unten">© 2026 Rightly · Eine KI-Tastatur für das iPhone · 24,99 € pro Jahr, 3 Tage kostenlos</div>
+    <div class="fuss-unten" id="bd-fuss">© 2026 Rightly · Eine KI-Tastatur für das iPhone · 24,99 € pro Jahr, 3 Tage kostenlos</div>
   </div>
 </footer>
 
+<style>
+.bd-schild{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;background:#FFD60A;color:#000;font-size:13px;font-weight:800;letter-spacing:.08em}
+.bd-schild[hidden]{display:none}
+.bd-alt{font-size:.45em;color:#9a9ea6;text-decoration:line-through;text-decoration-thickness:3px;margin-right:.25em;vertical-align:middle}
+</style>
+<script id="black-deals-schalter">
+/* Black Deals: 15.11.2026 00:00 bis 27.11.2026 23:59 deutscher Zeit (UTC+1). Danach automatisch wieder normal. */
+(function(){
+  var start=Date.UTC(2026,10,14,23,0,0), ende=Date.UTC(2026,10,27,23,0,0), jetzt=Date.now();
+  var vorschau=/[?&]black\b/.test(location.search);
+  if(!(vorschau||(jetzt>=start&&jetzt<ende)))return;
+  function setz(id,html){var el=document.getElementById(id);if(el)el.innerHTML=html;}
+  var schild=document.getElementById('bd-schild'); if(schild)schild.hidden=false;
+  setz('bd-zahl','<span class="bd-alt">24,99 €</span>19,99 €');
+  setz('bd-je','pro Jahr, nur bis 27. November · die ersten 3 Tage kostenlos<br>oder 9,99 € im Monat');
+  setz('bd-unter','Black Deals: 19,99 € statt 24,99 € im Jahr, nur bis 27.11. 3 Tage kostenlos testen. iPhone, iOS 16+');
+  setz('bd-fuss','© 2026 Rightly · Eine KI-Tastatur für das iPhone · Black Deals bis 27.11.: 19,99 € pro Jahr, 3 Tage kostenlos');
+})();
+</script>
 </body>
 </html>
