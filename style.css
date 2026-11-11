@@ -104,7 +104,7 @@ h3{font-size:19.5px;line-height:1.35;font-weight:700;letter-spacing:-.01em;margi
 .sub{color:var(--text2);margin-bottom:28px;font-size:17px}
 p+p{margin-top:14px}
 /* Absatz, der auf einen Baustein folgt, darf nicht daran kleben */
-.karten+p, .vn+p, ol.schritte+p, .vorlage+p, ul+p, .hinweis+p{margin-top:22px}
+.karten+p, .vn+p, ol.schritte+p, .vorlage+p, ul+p, ol+p, .hinweis+p{margin-top:22px}
 
 /* Karten */
 .karten{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:18px}
