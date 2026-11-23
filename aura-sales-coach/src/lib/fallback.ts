@@ -90,6 +90,7 @@ export function fallbackAnswer(opts: {
   ctx: CoachContext;
   risks: RiskFlag[];
   actionId?: string;
+  promotion?: string;
 }): string {
   const { products, ctx, risks, actionId } = opts;
   const obj = ctx.objection ? OBJECTION_REPLY[ctx.objection] : undefined;
@@ -99,7 +100,12 @@ export function fallbackAnswer(opts: {
     generalNotesFor(p).some((n) => n.notes.some((t) => /blutverd|marcumar|blutgerinnung/i.test(t)));
   const declined = actionId === "kunde-lehnt-ab" || ctx.objection === "nichts-bestellen" || ctx.objection === "staendig-angerufen";
 
+  const promoSay =
+    opts.promotion && (actionId === "preis" || ctx.objection === "zu-teuer")
+      ? `Das verstehe ich, [Name]. Gerade passt es gut: ${opts.promotion} Ich schaue gleich nach, was das für Ihr Produkt bedeutet – darf ich kurz nachrechnen?`
+      : undefined;
   const say =
+    promoSay ||
     (actionId && ACTION_REPLY[actionId]) ||
     obj?.say ||
     "Danke, dass Sie mir das erzählen, [Name]. Ich möchte Ihnen nur etwas vorschlagen, das wirklich zu Ihnen passt.";

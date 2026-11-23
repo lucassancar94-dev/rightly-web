@@ -1,5 +1,6 @@
 import { complaintLabel, objectionLabel } from "./catalog";
 import { knowledgeAsText } from "./knowledge";
+import { DEFAULT_PROFILE, profileAsPrompt, promotionAsPrompt, type SellerProfile } from "./profile";
 import type { CoachContext, Product, RiskFlag } from "./types";
 
 function productBlock(p: Product) {
@@ -25,7 +26,7 @@ function productBlock(p: Product) {
   return lines.join("\n");
 }
 
-export function buildSystemPrompt(products: Product[], ctx: CoachContext, risks: RiskFlag[]) {
+export function buildSystemPrompt(products: Product[], ctx: CoachContext, risks: RiskFlag[], profile: SellerProfile = DEFAULT_PROFILE) {
   const situation = [
     ctx.complaints.length ? `Ausgewählte Beschwerden: ${ctx.complaints.map(complaintLabel).join(", ")}` : null,
     ctx.objection ? `Aktueller Einwand: „${objectionLabel(ctx.objection)}“` : null,
@@ -43,7 +44,7 @@ export function buildSystemPrompt(products: Product[], ctx: CoachContext, risks:
 # GESPRÄCHSSTIL (für alles, was der Verkäufer vorliest)
 - Natürlich, menschlich, freundlich, respektvoll. Siezen.
 - Für ältere Menschen verständlich: kurze Sätze, keine Fachwörter.
-- Keine aggressiven Techniken, keine künstliche Verknappung, keine erfundenen Rabatte oder Preise, keine Angstmache.
+- Keine aggressiven Techniken, keine künstliche Verknappung, keine erfundenen Rabatte oder Preise (Rabatte nur laut Abschnitt AKTUELLE AKTION), keine Angstmache.
 - Für den Kundennamen immer den Platzhalter „[Name]“ verwenden (z. B. „Herr [Name]“).
 - Bei klarer, endgültiger Ablehnung: Wunsch respektieren, freundlich verabschieden. Wünscht der Kunde keine Anrufe mehr: Sperrvermerk zusagen.
 
@@ -71,6 +72,12 @@ Stichpunkte („- “) mit Warnungen, Wechselwirkungen, Prüfbedarf. Nur für de
 Bei reinen Folgefragen des Verkäufers (z. B. „Was soll ich jetzt sagen?“, „Kürzer“) darfst du Abschnitte weglassen, die sich nicht ändern – [SAGEN] ist aber immer enthalten. Bei Wissensfragen („Darf ich das sagen?“, „Was ist feuchte Makula?“) antworte mit einem kurzen Text VOR dem ersten Marker (max. 4 Sätze) und danach [SAGEN].
 
 Behalte den GESAMTEN bisherigen Gesprächsverlauf im Blick und berücksichtige jede neue Information (z. B. neue Medikamente) bei allen weiteren Antworten.
+
+# PERSÖNLICHER STIL DES VERKÄUFERS
+${profileAsPrompt(profile)}
+
+# AKTUELLE AKTION
+${promotionAsPrompt(profile)}
 
 # AKTUELLE GESPRÄCHSSITUATION
 ${situation || "Noch keine strukturierten Angaben."}

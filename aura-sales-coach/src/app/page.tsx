@@ -9,6 +9,7 @@ import { ChatInput } from "@/components/ChatInput";
 import { MicButton } from "@/components/MicButton";
 import { RiskBanner } from "@/components/RiskBanner";
 import { IconChevron } from "@/components/Icons";
+import { OpenerCard } from "@/components/OpenerCard";
 
 function Step({ n, title, hint, children }: { n: number; title: string; hint?: string; children: React.ReactNode }) {
   return (
@@ -66,6 +67,9 @@ export default function LiveCoachPage() {
         <div>
           <h1 className="text-2xl font-bold tracking-tight">Live-Coach</h1>
           <p className="mt-1 text-sm text-muted">Antippen, was der Kunde sagt – der Coach liefert in Sekunden die passende Antwort.</p>
+          <div className="mt-4">
+            <OpenerCard />
+          </div>
         </div>
       )}
 

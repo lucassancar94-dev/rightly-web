@@ -5,6 +5,7 @@ import { fallbackAnswer } from "@/lib/fallback";
 import { redact } from "@/lib/redact";
 import { hasOpenAI, MODEL, openai } from "@/lib/openai";
 import { clientIp, rateLimit } from "@/lib/ratelimit";
+import { sanitizeProfile } from "@/lib/profile";
 import type { CoachContext } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -13,6 +14,7 @@ export const dynamic = "force-dynamic";
 type Body = {
   messages?: { role: string; content: string }[];
   context?: Partial<CoachContext>;
+  profile?: unknown;
   actionId?: string;
 };
 
@@ -64,6 +66,7 @@ export async function POST(req: Request) {
   // Kontext behalten: erste Nachricht (Analyse) + die letzten Nachrichten
   const messages = all.length > MAX_MESSAGES ? [all[0], ...all.slice(-(MAX_MESSAGES - 1))] : all;
 
+  const profile = sanitizeProfile(body.profile);
   const risks = detectRisks([ctx.notes, ...all.filter((m) => m.role === "user").map((m) => m.content)], ctx);
 
   let products;
@@ -74,7 +77,7 @@ export async function POST(req: Request) {
   }
 
   if (!hasOpenAI()) {
-    return new Response(textStream(fallbackAnswer({ products, ctx, risks, actionId: body.actionId })), { headers });
+    return new Response(textStream(fallbackAnswer({ products, ctx, risks, actionId: body.actionId, promotion: profile.promotion })), { headers });
   }
 
   try {
@@ -83,7 +86,7 @@ export async function POST(req: Request) {
       stream: true,
       temperature: 0.4,
       max_tokens: 900,
-      messages: [{ role: "system", content: buildSystemPrompt(products, ctx, risks) }, ...messages],
+      messages: [{ role: "system", content: buildSystemPrompt(products, ctx, risks, profile) }, ...messages],
     });
 
     const enc = new TextEncoder();
@@ -108,7 +111,7 @@ export async function POST(req: Request) {
   } catch (e) {
     // KI nicht erreichbar → regelbasierte Antwort, damit der Verkäufer nicht ohne Hilfe dasteht
     console.error("OpenAI-Fehler:", (e as Error).message);
-    return new Response(textStream(fallbackAnswer({ products, ctx, risks, actionId: body.actionId }), 64, 0), {
+    return new Response(textStream(fallbackAnswer({ products, ctx, risks, actionId: body.actionId, promotion: profile.promotion }), 64, 0), {
       headers: { ...headers, "X-Coach-Fallback": "1" },
     });
   }

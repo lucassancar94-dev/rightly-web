@@ -5,6 +5,7 @@ import type { ChatMessage, CoachContext, Conversation, Outcome, Product } from "
 import { analysisMessage } from "@/lib/prompt";
 import { complaintLabel, objectionLabel } from "@/lib/catalog";
 import { redact } from "@/lib/redact";
+import { DEFAULT_PROFILE, sanitizeProfile, type SellerProfile } from "@/lib/profile";
 
 /**
  * Gesprächsgedächtnis.
@@ -15,6 +16,7 @@ import { redact } from "@/lib/redact";
 
 const ACTIVE_KEY = "asc.active.v1";
 const HISTORY_KEY = "asc.history.v1";
+const PROFILE_KEY = "asc.profile.v1";
 const HISTORY_DAYS = 30;
 const HISTORY_MAX = 60;
 
@@ -53,6 +55,8 @@ function save(key: string, value: unknown) {
 
 type Ctx = {
   ready: boolean;
+  profile: SellerProfile;
+  setProfile: (p: SellerProfile) => void;
   active: Conversation;
   history: Conversation[];
   products: Product[];
@@ -88,6 +92,8 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
   const [products, setProducts] = useState<Product[]>([]);
   const [productsError, setProductsError] = useState<string | null>(null);
   const [streaming, setStreaming] = useState(false);
+  const [profile, setProfileState] = useState<SellerProfile>(DEFAULT_PROFILE);
+  const profileRef = useRef(profile);
   const abortRef = useRef<AbortController | null>(null);
   const activeRef = useRef(active);
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
@@ -98,6 +104,9 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
     const cutoff = Date.now() - HISTORY_DAYS * 86400_000;
     const h = load<Conversation[]>(HISTORY_KEY, []).filter((c) => c.updatedAt > cutoff);
     setHistory(h);
+    const prof = sanitizeProfile(load<unknown>(PROFILE_KEY, DEFAULT_PROFILE));
+    profileRef.current = prof;
+    setProfileState(prof);
     const a = load<Conversation | null>(ACTIVE_KEY, null);
     if (a && a.updatedAt > cutoff) {
       activeRef.current = a;
@@ -152,6 +161,7 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
       const conv = activeRef.current;
       const payload = {
         context: conv.context,
+        profile: profileRef.current,
         actionId,
         messages: conv.messages.filter((m) => !m.error).map((m) => ({ role: m.role, content: m.content })),
       };
@@ -281,6 +291,13 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
   const deleteConversation = useCallback((id: string) => setHistory((h) => h.filter((c) => c.id !== id)), []);
   const clearHistory = useCallback(() => setHistory([]), []);
 
+  const setProfile = useCallback((p: SellerProfile) => {
+    const clean = sanitizeProfile(p);
+    profileRef.current = clean;
+    setProfileState(clean);
+    save(PROFILE_KEY, clean);
+  }, []);
+
   const registerInput = useCallback((el: HTMLTextAreaElement | null) => {
     inputRef.current = el;
   }, []);
@@ -295,6 +312,8 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
   const value = useMemo<Ctx>(
     () => ({
       ready,
+      profile,
+      setProfile,
       active,
       history,
       products,
@@ -314,7 +333,7 @@ export function ConversationProvider({ children }: { children: React.ReactNode }
       focusInput,
       registerInput,
     }),
-    [ready, active, history, products, productsError, streaming, setContext, analyze, ask, retry, stop, newCustomer, resume, setOutcome, deleteConversation, clearHistory, reloadProducts, focusInput, registerInput],
+    [ready, profile, setProfile, active, history, products, productsError, streaming, setContext, analyze, ask, retry, stop, newCustomer, resume, setOutcome, deleteConversation, clearHistory, reloadProducts, focusInput, registerInput],
   );
 
   return <ConversationCtx.Provider value={value}>{children}</ConversationCtx.Provider>;
