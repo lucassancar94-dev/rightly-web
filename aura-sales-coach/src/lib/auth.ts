@@ -7,7 +7,7 @@ export const ADMIN_COOKIE = "asc_admin";
 const MAX_AGE_SECONDS = 60 * 60 * 12; // 12 Stunden = eine Schicht
 
 function secret() {
-  return process.env.SESSION_SECRET || process.env.ADMIN_PASSWORD || process.env.APP_ACCESS_CODE || "dev-only-secret";
+  return process.env.SESSION_SECRET || process.env.ADMIN_PASSWORD || process.env.APP_ACCESS_CODE || process.env.APP_USERS || "dev-only-secret";
 }
 
 async function hmac(data: string) {
@@ -51,6 +51,22 @@ export const cookieOptions = {
   maxAge: MAX_AGE_SECONDS,
 };
 
+/**
+ * Persönliche Konten aus APP_USERS, Format: "lucas:Code1;anna:Code2".
+ * Namen ohne Groß-/Kleinschreibung, Codes exakt.
+ */
+export function appUsers(): Map<string, string> {
+  const users = new Map<string, string>();
+  for (const entry of (process.env.APP_USERS || "").split(";")) {
+    const i = entry.indexOf(":");
+    if (i <= 0) continue;
+    const name = entry.slice(0, i).trim().toLowerCase();
+    const code = entry.slice(i + 1).trim();
+    if (name && code) users.set(name, code);
+  }
+  return users;
+}
+
 export function appProtectionEnabled() {
-  return Boolean(process.env.APP_ACCESS_CODE);
+  return Boolean(process.env.APP_ACCESS_CODE || process.env.APP_USERS);
 }

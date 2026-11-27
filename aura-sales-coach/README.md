@@ -59,7 +59,8 @@ App öffnen: http://localhost:3000 – auf dem iPhone im selben WLAN: `http://<I
 | `OPENAI_API_KEY` | für KI | Schlüssel von https://platform.openai.com/api-keys |
 | `OPENAI_MODEL` | nein | Standard `gpt-4o-mini` (schnell & günstig). Jedes Chat-Completions-Modell möglich. |
 | `OPENAI_TRANSCRIBE_MODEL` | nein | Spracheingabe, Standard `whisper-1` |
-| `APP_ACCESS_CODE` | **im Live-Betrieb ja** | Team-Zugangscode – schützt App und OpenAI-Budget |
+| `APP_USERS` | **empfohlen** | Persönliche Konten: `lucas:Code1;anna:Code2` – Login mit Name + eigenem Code |
+| `APP_ACCESS_CODE` | optional | Gemeinsamer Team-Zugangscode (zusätzlich oder statt `APP_USERS`) |
 | `ADMIN_PASSWORD` | für Admin | Passwort für `/admin` |
 | `SESSION_SECRET` | ja | Zufallswert, z. B. `openssl rand -hex 32` |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` | Live-Betrieb | Produktdatenbank; ohne diese wird `data/products.json` genutzt |

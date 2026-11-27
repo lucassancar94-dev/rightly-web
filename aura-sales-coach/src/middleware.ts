@@ -1,14 +1,14 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { APP_COOKIE, verifyToken } from "@/lib/auth";
+import { APP_COOKIE, appProtectionEnabled, verifyToken } from "@/lib/auth";
 
 /**
- * Zugangsschutz: Ist APP_ACCESS_CODE gesetzt, benötigen alle Seiten und APIs
+ * Zugangsschutz: Ist APP_ACCESS_CODE oder APP_USERS gesetzt, benötigen alle Seiten und APIs
  * einen gültigen Login-Cookie. Der Admin-Bereich hat zusätzlich ein eigenes Passwort.
  */
 const PUBLIC = ["/login", "/api/login", "/manifest.webmanifest", "/sw.js", "/offline.html"];
 
 export async function middleware(req: NextRequest) {
-  if (!process.env.APP_ACCESS_CODE) return NextResponse.next();
+  if (!appProtectionEnabled()) return NextResponse.next();
   const { pathname } = req.nextUrl;
   if (PUBLIC.includes(pathname) || pathname.startsWith("/icons/") || pathname.startsWith("/api/admin")) {
     return NextResponse.next();
